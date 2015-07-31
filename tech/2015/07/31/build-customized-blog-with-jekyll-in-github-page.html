@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+         **
+         * Auther:      掌心
+         * Contact:     http://www.zhanxin.info
+         * Create:      2013.08.10
+         * Theme Name:  Kunka
+         * Authorize:   BY-NC-SA
+         **
+        -->
+        <meta charset="utf-8">
+        <title>用Jekyll在GitHub Pages中创建定制化的博客 - 文字癖</title>
+        <!-- meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="generator" content="Jekyll" />
+        <meta name="author" content="minixalpha" />
+        <meta name="description" content="情到深处自然流" />
+        <meta name="keywords" content="" />
+        <!-- atom -->
+        <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/atom.xml" />
+        <link rel="shortcut icon" href="http://jekyllrb.com/favicon.png" type="image/x-icon" />
+        <!-- font-awesome -->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link href='http://fonts.useso.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/themes/kunka/css/syntax.css">
+        <link rel="stylesheet" href="/themes/kunka/css/main.css">
+        
+    </head>
+    <body>
+        <div class="head fn-clear">
+            <div class="header">
+                <h1 class="logo">
+                    <a href="/"><i class="icon-anchor"></i></a>
+                </h1>
+                <nav class="nav">
+                    <ul>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/index.html">
+                                首页
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/navigations/categories.html">
+                                分类目录
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/navigations/archives.html">
+                                文章归档
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/navigations/contact.html">
+                                联系我
+                            </a>
+                            
+                        </li>
+                        
+                        
+                        
+                        <li class="nav-item ">
+                            <a href="/navigations/links.html">
+                                友情链接
+                            </a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+                <div class="follow">
+                    
+                    <a href="/atom.xml" target="_blank"><i class="icon-rss"></i></a>
+                    
+                    <a href="http://weibo.com" target="_blank"><i class="icon-weibo"></i></a>
+                    
+                    <a href="http://github.com" target="_blank"><i class="icon-github-alt"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="contain fn-clear">
+            <div class="container fn-clear">
+                <div class="main">
+                    
+    <div class="article article-post">
+    <h2 class="title">用Jekyll在GitHub Pages中创建定制化的博客</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">31 Jul 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/StrayBirds/navigations/categories.html#tech-ref" >tech</a></span>
+    </div>
+    <h2>基本工具准备</h2>
+
+<p>博主的试验环境是在centos 7.0上的，像这种开源的东西肯定是得放在linux环境下用的，如果读者的环境是windows，保不准出问题，虽说官方也支持。在正式开始之前，建议读者先大致看看文章最后给出的几个参考链接，真心有价值，博主也是从他们那里获取了基础知识。正所谓站在别人肩膀上前进，确实如此。大致看了之后，让我们开始吧。</p>
+
+<h3>Ruby安装</h3>
+
+<p>在centos下安装ruby是很容易的，它会附带gem命令。直接用如下命令：</p>
+
+<blockquote>
+<p>yum install ruby </p>
+</blockquote>
+
+<h3>Ruby源更改</h3>
+
+<p>因为使用默认源是无法安装jekyll的。做法如下图所示，具体内容可见参考链接第3条
+<img src="/assets/post-images/install-rubygem-from-mirror.png" alt="install-rubygem-from-mirror"></p>
+
+<h3>安装jekyll</h3>
+
+<p>直接使用如下命令搞定：</p>
+
+<blockquote>
+<p>gem install jekyll </p>
+</blockquote>
+
+<p>打印安装信息，如果正常的话就安装成功了</p>
+
+<h3>小试牛刀</h3>
+
+<p>如果急于想测试下jekyll的有效性，可以按如下基本步骤来做：</p>
+
+<ol>
+<li><p>jekyll new myblog</p>
+
+<p>myblog是根目录名称，接下来生成的文件都在其中。如果此命令执行时出现javascript相关错误，应该是需要安装nodejs</p></li>
+<li><p>cd myblog </p></li>
+<li><p>jekyll serve</p></li>
+</ol>
+
+<p>此时在myblog目录下就生成了基本目录和文件。关于各目录的介绍，参考链接中的博文已经讲了很多了，
+我就不在这嚼舌根了。强调一点：_site目录是在第三步之后才有的，内部其实进行了build操作。
+可基本理解为jekyll为除_site目录外的所有内容生成了静态网页并保存在_site下，这样如果发布
+网站只需上传_site下的内容即可。</p>
+
+<p>运行效果如下：
+<img src="/assets/post-images/jekyll-serve.png" alt="jekyll-serve">
+注意下面的regenerating是表明我修改文章后能很快检测出来重新生成，这样方便了很多</p>
+
+<p>启动本地web程序，在localhost:4000可访问</p>
+
+<h2>建立自己的blog</h2>
+
+<p>光有jekyll不行，还只是在本地跑，得放在互联网上。幸亏有github做了件有趣的事，允许用户在
+github page上托管网页，后台支持jekyll。几个git操作就可将静态网页放到某个分支上，就可用
+独立域名访问了，还免流量，不像wordpress那样麻烦（当然人家也高端，支持动态生成）。
+所以若想建立中小型的简单博客，jekyll+github还真挺好。</p>
+
+<p>正如链接一中网友所说，有三种方式：从头开始、找一份框架修改使用、fork别人的。身为<font color="red">前端学渣</font>，也只好用fork了。
+我直接fork了<a href="https://github.com/minixalpha/StrayBirds/tree/gh-pages">这里</a>。
+因为发现这里提供挺好看的框架，而且作者也打包了，直接修改配置文件就能用，较合心意，接下来的讲述也是以此仓库为标准。
+基本打算就是先下下来，在本地跑起来，弄清楚基本的概念，添加一些文章看看变化，熟悉之后再托管到自己的github上去。</p>
+
+<h3>修改配置文件</h3>
+
+<p>git clone之后，首先关注的是_config.yml文件。里面的参数都得定成自己的。最为关键的值如下：</p>
+
+<ul>
+<li><p>username
+要改成自己的github用户名，因为到时要用<strong><em>用户名.github.io</em></strong>来访问，具体教程可参考<a href="https://pages.github.com/">这里</a>;</p></li>
+<li><p>baseurl
+我给改成了空，这样就是直接用master分支作用户博客的来源了，而不是项目站点中用的gh-pages分支。关于这一点，若有不懂请读者认真阅读链接一博文。</p></li>
+<li><p>excerpt_seperator
+当显示文章摘要时，这个选项就很好用的。只要人为地在文章中加入相应字符就可显示出摘要而不是全部，美化了页面布局。默认是\n\n\n</p></li>
+</ul>
+
+<h3>关于主题</h3>
+
+<p>默认使用的是kunka主题，位于themes目录下。博主还是非常喜欢kunka主题的，就是背景颜色稍需调整，而且有导航，挺像一个正式上线的网站。midnight主题也挺不错，可惜没导航，kunka里面的很多都没有。
+不过也没关系，先学会kunka主题，肯定是有地方进行更改的。</p>
+
+<h3>编写自己的文章</h3>
+
+<p>文章支持markdown,html等格式，在_post目录中。由于博主已经比较熟悉markdown语法，所以就删除了不相关的文件，建立了自己的两个文件，一个是html格式，是曾经生成的一个文档；另一个是md格式，正是此篇文章，用markdown语法编写。</p>
+
+<p>注意每篇文章前面都有个头部，用以标识本篇文章的一些属性，它最后会被jekyll生成对应的html格式文档。例如本篇post的头部是这样的：</p>
+
+<blockquote>
+<p>---</p>
+
+<p>layout: post</p>
+
+<p>title: 用Jekyll在GitHub Pages中创建定制化的博客</p>
+
+<p>category: tech</p>
+
+<p>tags: jekyll </p>
+
+<p>---</p>
+</blockquote>
+
+<p>layout:采用了_layout目录中的post.html </p>
+
+<p>title:文章标题</p>
+
+<p>category:文章分类，便于管理，也可以用复数categories表示层级分类目录</p>
+
+<p>tags:文章标签</p>
+
+<p>还有一个不常用的域permalink，可以自定义文章的url。默认是以年月日加题目的，如果感觉不爽可更换。更多详细设置在<a href="http://jekyll.bootcss.com/docs/configuration/">这里</a></p>
+
+<h3>运行测试</h3>
+
+<p>刚开始运行时，响应缓慢，浏览器下端显示了font.google的字样，估计是加载谷歌字体的问题。
+通过搜索发现可用<a href="http://libs.useso.com">font.useso.com</a>和<a href="http://libs.useso.com">ajax.useso.com</a>
+来分别替换google网站的font和ajax。替换后就正常了。至于哪些文件有这个链接，用find+grep+bash很容易找到。</p>
+
+<p>首页效果如下图所示：
+<img src="/assets/post-images/jekyll-blog-show.png" alt="jekyll-blog-show">
+上一篇就是本篇文章，下一篇是html格式文章；右边有部分字体比较奇葩，我想就是useso.com提供的</p>
+
+<h2>参考链接</h2>
+
+<ul>
+<li><a href="http://blog.csdn.net/on_1y/article/details/19259435">使用GitHub,Jekyll 打造自己的免费独立博客</a>
+
+<ul>
+<li>这是博主学习jekyll的启蒙文章，非常感谢作者提供了StrayBirds和他自己博客的源代码信息</li>
+</ul></li>
+<li><a href="http://jekyll.bootcss.com/docs/home/">jekyll中文教程</a>
+
+<ul>
+<li>貌似是国内有人翻译的，很好，就是有点慢</li>
+</ul></li>
+<li><a href="http://ruby.taobao.org/">RubyGems下载</a>
+
+<ul>
+<li>国外的ruby貌似被挡了，所以国内有人做了镜像，真是大好银啊</li>
+</ul></li>
+<li><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门</a>
+
+<ul>
+<li>这是篇很经典的日志，值得参考，但要注意有些地方已经有改动了</li>
+</ul></li>
+<li><a href="http://www.tuicool.com/articles/vENfq2">使用jekyll来写博客的一些心得</a>
+
+<ul>
+<li>谈到了更多操作，像评论系统可用国内的多说、友言，代码高亮等</li>
+</ul></li>
+<li><a href="https://github.com/baiwfg2/README">github markdown语法介绍</a></li>
+</ul>
+
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="//jobs/2015/07/31/TR-internship-work.html" rel="bookmark">&laquo;&nbsp;在汤森路透实习的最后工作结果展示</a>
+        
+        
+    </nav>
+    <div class="comment">
+        
+            
+        
+    </div>
+</div>
+
+
+                    
+                        <div id="disqus_thread"></div>
+ <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'gh-90blog'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+                    
+                </div>
+                <div class="aside">
+                    <div class="aside-contact">
+                        <h4 class="title">About me</h4>
+                        <div class="det fn-clear">
+                            <div class="det-image">
+                                <img src="https://avatars.githubusercontent.com/minixalpha" />
+                            </div>
+                            <div class="det-text">
+                                <p>我是 minixalpha</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Recent Posts</h4>
+                        <ul class="list">
+                            
+                                <li><a href="/tech/2015/07/31/build-customized-blog-with-jekyll-in-github-page.html" title="用Jekyll在GitHub Pages中创建定制化的博客" rel="bookmark">用Jekyll在GitHub Pages中创建定制化的博客</a></li>
+                            
+                                <li><a href="/jobs/2015/07/31/TR-internship-work.html" title="在汤森路透实习的最后工作结果展示" rel="bookmark">在汤森路透实习的最后工作结果展示</a></li>
+                            
+                        </ul>
+                    </div>
+
+                    <div class="aside-item">
+                        <h4 class="title">Links</h4>
+                        <ul class="list">
+                            
+                                
+                                    
+                                    <li><a href="http://blog.csdn.net/on_1y/article/details/19259435" title="GitHub-Jekyll简明教程" target="_blank">GitHub-Jekyll简明教程</a></li>
+                                    
+                                    <li><a href="http://www.zhanxin.info/themes.html" title="Jekyll Theme" target="_blank">Jekyll Theme</a></li>
+                                    
+                                
+                            
+                                
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="foot">
+            <div class="footer">
+                <p>Copyright 2013. All rights reserved. Powered by <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, Design by <a href="http://www.zhanxin.info" target="_blank">zhanxin.info</a>.</p>
+            </div>
+        </div>
+        <script type="text/javascript" src="https://lib.sinaapp.com/js/jquery/1.8.3/jquery.min.js"></script>
+        
+    </body>
+</html>
