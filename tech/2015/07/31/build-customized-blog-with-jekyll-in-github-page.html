@@ -1,31 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!--
-         **
-         * Auther:      掌心
-         * Contact:     http://www.zhanxin.info
-         * Create:      2013.08.10
-         * Theme Name:  Kunka
-         * Authorize:   BY-NC-SA
-         **
-        -->
         <meta charset="utf-8">
         <title>用Jekyll在GitHub Pages中创建定制化的博客 - 文字癖</title>
         <!-- meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="generator" content="Jekyll" />
-        <meta name="author" content="minixalpha" />
+        <meta name="author" content="Lewis Chan" />
         <meta name="description" content="情到深处自然流" />
         <meta name="keywords" content="" />
         <!-- atom -->
         <link rel="alternate" type="application/atom+xml" title="Recent Entries" href="/atom.xml" />
-        <link rel="shortcut icon" href="http://jekyllrb.com/favicon.png" type="image/x-icon" />
+        <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon" />
+
         <!-- font-awesome -->
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <link href='http://fonts.useso.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.useso.com/css?family=Spirax' rel='stylesheet' type='text/css'>
+		<!--
         <link rel="stylesheet" href="/themes/kunka/css/syntax.css">
+		
+		<link href='http://alexgorbatchev.com/pub/sh/current/styles/shCore.css' rel='stylesheet' type='text/css'/>
+		<link href='http://alexgorbatchev.com/pub/sh/current/styles/shThemeDefault.css' rel='stylesheet' type='text/css'/>
+		<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shCore.js" type='text/javascript'></script>
+		<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushCpp.js" type='text/javascript'></script>
+		<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushBash.js" type='text/javascript'></script>
+		<script src="http://alexgorbatchev.com/pub/sh/current/scripts/shBrushPython.js" type='text/javascript'></script>
+		<script language='javascript'>
+			SyntaxHighlighter.all();
+		</script>
+		-->
+
+		<link href='/assets/css/shCore.css' rel='stylesheet' type='text/css'/>
+		<link href='/assets/css/shThemeDefault.css' rel='stylesheet' type='text/css'/>
+		<script src="/assets/js/shCore.js" type='text/javascript'></script>
+		<script src="/assets/js/shBrushCpp.js" type='text/javascript'></script>
+		<script src="/assets/js/shBrushBash.js" type='text/javascript'></script>
+		<script src="/assets/js/shBrushPython.js" type='text/javascript'></script>
+		<script language='javascript'>
+			SyntaxHighlighter.all();
+		</script>
+
         <link rel="stylesheet" href="/themes/kunka/css/main.css">
+
+		<!-- pygments 
+		<link href="../assets/css/pygments-monokai.css" rel="stylesheet" type="text/css' />
+		-->
+
         
     </head>
     <body>
@@ -105,7 +125,7 @@
         <span class="info-title"><i class="icon-calendar"></i> Published: </span>
         <span class="info-date">31 Jul 2015</span>
         <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
-        <span class="info-link"><a href="/StrayBirds/navigations/categories.html#tech-ref" >tech</a></span>
+        <span class="info-link"><a href="/navigations/categories.html#tech-ref" >tech</a></span>
     </div>
     <h2>基本工具准备</h2>
 
@@ -215,7 +235,7 @@ github page上托管网页，后台支持jekyll。几个git操作就可将静态
 
 <p>tags:文章标签</p>
 
-<p>还有一个不常用的域permalink，可以自定义文章的url。默认是以年月日加题目的，如果感觉不爽可更换。更多详细设置在<a href="http://jekyll.bootcss.com/docs/configuration/">这里</a></p>
+<p>还有一个不常用的域permalink，可以自定义文章的url。默认是以年月日加题目的，如果感觉不爽可更换。更多详细设置在<a href="http://jekyll.bootcss.com/docs/configuration/">这里</a>.且写的时候一定要注意：<font color="red"><strong>冒号后面至少要加一个空格，没有空格会报错</strong></font></p>
 
 <h3>运行测试</h3>
 
@@ -245,6 +265,7 @@ github page上托管网页，后台支持jekyll。几个git操作就可将静态
 <ul>
 <li>国外的ruby貌似被挡了，所以国内有人做了镜像，真是大好银啊</li>
 </ul></li>
+<li><a href="https://github.com/jekyll/jekyll">github jekyll</a></li>
 <li><a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">搭建一个免费的，无限流量的Blog----github Pages和Jekyll入门</a>
 
 <ul>
@@ -260,8 +281,10 @@ github page上托管网页，后台支持jekyll。几个git操作就可将静态
 
     <nav class="article-previous fn-clear">
         
-        <a class="prev" href="//jobs/2015/07/31/TR-internship-work.html" rel="bookmark">&laquo;&nbsp;在汤森路透实习的最后工作结果展示</a>
+        <a class="prev" href="//tech/2015/07/31/TR-internship-work.html" rel="bookmark">&laquo;&nbsp;TR实习工作结果展示</a>
         
+        
+        <a class="next" href="//tech/2015/07/31/post-test.html" rel="bookmark">这是一篇测试文章&nbsp;&raquo;</a>
         
     </nav>
     <div class="comment">
@@ -296,10 +319,10 @@ github page上托管网页，后台支持jekyll。几个git操作就可将静态
                         <h4 class="title">About me</h4>
                         <div class="det fn-clear">
                             <div class="det-image">
-                                <img src="https://avatars.githubusercontent.com/minixalpha" />
+                                <img src="https://avatars.githubusercontent.com/baiwfg2" />
                             </div>
                             <div class="det-text">
-                                <p>我是 minixalpha</p>
+                                <p>90后，摩羯座；生于乡镇，学于帝都；爱技术，爱开源；喜欢用文字分享生活...</p>
                             </div>
                         </div>
                     </div>
@@ -308,9 +331,13 @@ github page上托管网页，后台支持jekyll。几个git操作就可将静态
                         <h4 class="title">Recent Posts</h4>
                         <ul class="list">
                             
+                                <li><a href="/tech/2015/08/01/grammmer-highlight-in-jekyll.html" title="在Jekyll中实现语法高亮" rel="bookmark">在Jekyll中实现语法高亮</a></li>
+                            
+                                <li><a href="/tech/2015/07/31/post-test.html" title="这是一篇测试文章" rel="bookmark">这是一篇测试文章</a></li>
+                            
                                 <li><a href="/tech/2015/07/31/build-customized-blog-with-jekyll-in-github-page.html" title="用Jekyll在GitHub Pages中创建定制化的博客" rel="bookmark">用Jekyll在GitHub Pages中创建定制化的博客</a></li>
                             
-                                <li><a href="/jobs/2015/07/31/TR-internship-work.html" title="在汤森路透实习的最后工作结果展示" rel="bookmark">在汤森路透实习的最后工作结果展示</a></li>
+                                <li><a href="/tech/2015/07/31/TR-internship-work.html" title="TR实习工作结果展示" rel="bookmark">TR实习工作结果展示</a></li>
                             
                         </ul>
                     </div>
@@ -344,3 +371,4 @@ github page上托管网页，后台支持jekyll。几个git操作就可将静态
         
     </body>
 </html>
+

@@ -16,10 +16,11 @@ ul, ol {
     list-style-type: none;
 }
 body {
-    background: #92b3a2 url(../images/bg.jpg) repeat 0 0;
+	/* background: #92b3a2 url(../images/bg.jpg) repeat 0 0; */
+    background: #F2F2F2 repeat 0 0;
     font-size: 14px;
     line-height: 1.5;
-    font-family: Georgia, Hiragino Sans GB,\5b8b\4f53;
+    font-family: Courier,Georgia, Hiragino Sans GB,\5b8b\4f53;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
 }
 
@@ -29,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 h1 { margin-bottom: 1em; }
 p { margin: 1em 0; }
 
-a         { color: #91736b; text-decoration: none; }
+a         { color: #0000FF; text-decoration: none; }
 
 ::-moz-selection {background: rgba(252, 252, 82,0.2)}
 ::selection {background: rgba(252, 252, 82,0.2)}
@@ -149,7 +150,7 @@ a         { color: #91736b; text-decoration: none; }
     min-height: 600px;
     height: auto;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
-    background: #e3ded8 url(../images/cnt-top.jpg) repeat-x 0 0;
+    background: #f3e2a9 url(../images/cnt-top.jpg) repeat-x 0 0;
 }
 
 .main .article {
@@ -261,6 +262,14 @@ a         { color: #91736b; text-decoration: none; }
     background: rgba(255, 255, 255, 0.3);
     text-indent: 6px;
 }
+
+/*
+.main .article p img {
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+}
+*/
 
 .main .article pre {
     margin-bottom: 1em;

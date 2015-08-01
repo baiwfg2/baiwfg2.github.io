@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Categories - 文字癖</title>
+        <title>在Jekyll中实现语法高亮 - 文字癖</title>
         <!-- meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="generator" content="Jekyll" />
@@ -118,52 +118,90 @@
         <div class="contain fn-clear">
             <div class="container fn-clear">
                 <div class="main">
-                    <div class="article">
-    <h3 class="title">Categories</h3>
-    <ul class="categories">
-    
-    
-        <li class="categories-item"><a href="#tech-ref">
-            tech
-        </a></li>
-    
-    </ul>
+                    
+    <div class="article article-post">
+    <h2 class="title">在Jekyll中实现语法高亮</h2>
+    <div class="info">
+        <span class="info-title"><i class="icon-calendar"></i> Published: </span>
+        <span class="info-date">01 Aug 2015</span>
+        <span class="info-title"><i class="icon-folder-open"></i> Category: </span>
+        <span class="info-link"><a href="/navigations/categories.html#tech-ref" >tech</a></span>
+    </div>
+    <h2>前言</h2>
 
-<div class="article">
- 
-  <h2  class="article-year" id="tech-ref" data-year="&diams;">tech</h2>
-  <ul style="list-style: none">
-      
-    
-      
-        
-            <li style="background:#F2EEEC; padding:5px; margin:3px 0"><a href="/tech/2015/08/01/grammmer-highlight-in-jekyll.html">在Jekyll中实现语法高亮</a></li>
-        
-      
-    
-      
-        
-            <li style="background:#F2EEEC; padding:5px; margin:3px 0"><a href="/tech/2015/07/31/post-test.html">这是一篇测试文章</a></li>
-        
-      
-    
-      
-        
-            <li style="background:#F2EEEC; padding:5px; margin:3px 0"><a href="/tech/2015/07/31/build-customized-blog-with-jekyll-in-github-page.html">用Jekyll在GitHub Pages中创建定制化的博客</a></li>
-        
-      
-    
-      
-        
-            <li style="background:#F2EEEC; padding:5px; margin:3px 0"><a href="/tech/2015/07/31/TR-internship-work.html">TR实习工作结果展示</a></li>
-        
-      
-    
-   
-  </ul>
+<p>既然在github搭了博客，肯定是要上代码，那这时候代码好不好看就是个问题。
+之前在<a href="https://baiwfg2.github.io/tech/2015/07/31/build-customized-blog-with-jekyll-in-github-page.html">这篇文章</a>中介绍过基本搭建，也从<a href="https://github.com/minixalpha/StrayBirds/tree/gh-pages">这里</a>下载了源码进行研究，
+但发现作者本来的代码高亮是令人遗憾的，丑得吓到我了，如下图：
+<img src="/assets/post-images/normal-effect.jpg" alt="normal-effect"></p>
 
+<p>于是想办法搜索在jekyll中实现代码友好高亮的方法，现查到有两种方式，接下来分别讲述。</p>
+
+<h2>借助syntaxhighlighter实现代码高亮</h2>
+
+<p>目前找到的参考教程有两个：<a href="http://www.cnblogs.com/heyuquan/archive/2012/09/28/2707632.html">这里</a>和<a href="http://ju.outofmemory.cn/entry/79518">这里</a></p>
+
+<p>按照教程指示，我找到了_includes/kunka.html文件(默认主题是kunka)，把里面引入themes/css/syntax.css的link
+标签给注释掉，添加了以下内容：
+<img src="/assets/post-images/added-link-css.jpg" alt=""></p>
+
+<p>生成的c,python(其它语言类似)默认主题代码样式是这样的(注意此时不要用markdown的```或者Liquid语法了，用pre或script标签)：
+<pre class="brush:cpp">
+    #include &lt;iostream&gt;
+    using namespace std;
+    int main()
+    {
+        return 0;
+    }
+</pre></p>
+
+<pre class="brush:python">
+    def hello(flag):
+        if flag == 1:
+            print 'hello,world'
+        else:
+            raise NameError('error')
+</pre>
+
+<p>由于官网<a href="http://alexgorbatchev.com">http://alexgorbatchev.com</a>是国外的，访问可能会有些慢，但目前还能接受。当然你可
+选择将相应的文件下到本地引用，这样就快了。
+当然还有其他风格的，像eclipse,emacs等，读者可以自行尝试。不过，个人感觉，上面这种样式好像也不怎么好看耶。。</p>
+
+<h2>使用pygments实现代码高亮</h2>
+
+<p>参考教程在<a href="http://havee.me/internet/2013-08/support-pygments-in-jekyll.html">这里</a></p>
+
+<p>待续...</p>
+
+    <nav class="article-previous fn-clear">
+        
+        <a class="prev" href="//tech/2015/07/31/post-test.html" rel="bookmark">&laquo;&nbsp;这是一篇测试文章</a>
+        
+        
+    </nav>
+    <div class="comment">
+        
+            
+        
+    </div>
 </div>
-</div>
+
+
+                    
+                        <div id="disqus_thread"></div>
+ <script type="text/javascript">
+     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+     var disqus_shortname = 'gh-90blog'; // required: replace example with your forum shortname
+
+     /* * * DON'T EDIT BELOW THIS LINE * * */
+     (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+ </script>
+ <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
 
                     
                 </div>
