@@ -15,6 +15,7 @@ comments: true
 
 ### Ruby源更改
 因为使用默认源是无法安装jekyll的。做法如下图所示，具体内容可见参考链接第3条
+
 ![install-rubygem-from-mirror](/assets/post-images/install-rubygem-from-mirror.png)
 ### 安装jekyll 
 直接使用如下命令搞定：
@@ -37,6 +38,7 @@ comments: true
 网站只需上传\_site下的内容即可。
 
 运行效果如下：
+
 ![jekyll-serve](/assets/post-images/jekyll-serve.png)
 
 注意下面的regenerating是表明我修改文章后能很快检测出来重新生成，这样方便了很多
